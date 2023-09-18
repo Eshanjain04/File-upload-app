@@ -10,6 +10,6 @@ class MongoConnect:
 
     @staticmethod
     def connect_to_db():
-        uri = f'mongodb+srv://{DATABASE_USER}:{DATABASE_PASSWORD}@ecom.bxh62ix.mongodb.net/?retryWrites=true&w=majority'
+        uri = f'mongodb+srv://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_NAME}.m29fy3g.mongodb.net/?retryWrites=true&w=majority'
         connect(db=DATABASE_NAME, username=DATABASE_USER, password=DATABASE_PASSWORD, host=uri)
         print('DB is connected successfully.')
