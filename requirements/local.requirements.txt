@@ -87,8 +87,6 @@ idna==3.4
     #   anyio
     #   jsonschema
     #   requests
-ipython==8.14.0
-    # via ipykernel
 isoduration==20.11.0
     # via jsonschema
 jedi==0.18.2
