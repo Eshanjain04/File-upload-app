@@ -46,12 +46,6 @@ class S3Manager:
         s3_file_name = f'{self.upload_path}/{upload_location}/{self.get_file_name(file_name=file_name)}'
 
         self.client.upload_fileobj(stream, self.bucket, s3_file_name, ExtraArgs=extra_args)
-
-        # url = self.client.generate_presigned_url(ClientMethod='get_object',
-        #                                          Params={
-        #                                              'Bucket': self.bucket,
-        #                                              'Key': s3_file_name
-        #                                          })
         return s3_file_name
 
     @classmethod
