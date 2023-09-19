@@ -123,8 +123,6 @@ mistune==3.0.1
     # via nbconvert
 mongoengine==0.27.0
     # via -r dummy.requirements.in
-nbclient==0.8.0
-    # via nbconvert
 nbconvert==7.6.0
     # via jupyter-server
 nbformat==5.9.0
