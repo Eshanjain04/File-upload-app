@@ -7,15 +7,21 @@ class Register:
 
     def on_post(self, request, response):
         user_input = request.media
+        body = {'status': 'failed', 'msg': ''}
         if not (user_input.get('user_name')):
-            return ResponseEngine(response=response, body='Please Enter Username').error_response()
+            body['msg'] = 'Please Enter Username'
+            return ResponseEngine(response=response, body=body).error_response()
         elif not user_input.get('email'):
-            return ResponseEngine(response=response, body='Please Enter Email').error_response()
+            body['msg'] = 'Please Enter Email'
+            return ResponseEngine(response=response, body=body).error_response()
         elif not user_input.get('password'):
-            return ResponseEngine(response=response, body='Please Enter Password').error_response()
-        user_obj = User.objects.filter(user_name=user_input['user_name']).first()
-        if user_obj:
-            return ResponseEngine(response=response, body='User Already Exists').error_response()
+            body['msg'] = 'Please Enter Password'
+            return ResponseEngine(response=response, body=body).error_response()
+        user_obj_with_user_name = User.objects.filter(user_name=user_input['user_name']).first()
+        user_obj_with_email = User.objects.filter(user_name=user_input['email']).first()
+        if user_obj_with_user_name or user_obj_with_email:
+            body['msg'] = 'User Already Exists with given username/email'
+            return ResponseEngine(response=response, body=body).error_response()
         else:
             hash_pass = Encrypt().encrypt(user_input.get('password'))
             new_user_obj = User(user_name=user_input['user_name'],
