@@ -1,4 +1,5 @@
 from json import dumps
+import falcon
 
 
 class ResponseEngine:
@@ -16,3 +17,12 @@ class ResponseEngine:
     def error_response(self):
         self.response.status = 422
         self.response.text = dumps(self.response_dict)
+
+
+class AuthorizationError(falcon.HTTPError):
+    def __init__(self, message):
+        super().__init__(
+            status=falcon.HTTP_422,
+            title='Authorization Error',
+            description=message
+        )
