@@ -19,7 +19,7 @@ class DocUpload:
                                            upload_location='fileuploadapp',
                                            is_public=True)
             random_value = ''.join(random.choices(s.ascii_uppercase + s.digits + s.ascii_lowercase, k=4))
-            short_url = f'http://eshgetfile/{random_value}'
+            short_url = f'eshgetfile/{random_value}'
             document = Document(
                 file_name=uploaded_file.secure_filename,
                 file_path=f'https://fileuploadappesh.s3.ap-south-1.amazonaws.com/{path}',
