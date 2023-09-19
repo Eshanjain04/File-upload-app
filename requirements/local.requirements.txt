@@ -123,19 +123,10 @@ mistune==3.0.1
     # via nbconvert
 mongoengine==0.27.0
     # via -r dummy.requirements.in
-nbconvert==7.6.0
-    # via jupyter-server
-nbformat==5.9.0
-    # via
-    #   jupyter-server
-    #   nbclient
-    #   nbconvert
 nodeenv==1.8.0
     # via pre-commit
 openpyxl==3.1.2
     # via -r dummy.requirements.in
-pandocfilters==1.5.0
-    # via nbconvert
 parso==0.8.3
     # via jedi
 passlib==1.7.4
@@ -148,8 +139,6 @@ pip-tools==6.13.0
     # via -r dummy.requirements.in
 pre-commit==3.3.3
     # via -r dummy.requirements.in
-prometheus-client==0.17.0
-    # via jupyter-server
 prompt-toolkit==3.0.38
     # via ipython
 ptyprocess==0.7.0
@@ -174,18 +163,8 @@ pyproject-hooks==1.0.0
     # via build
 pyrsistent==0.19.3
     # via jsonschema
-python-dateutil==2.8.2
-    # via
-    #   arrow
-    #   botocore
-    #   jupyter-client
 python-dotenv==1.0.0
     # via -r dummy.requirements.in
-pyyaml==6.0
-    # via
-    #   jupyter-events
-    #   pre-commit
-    #   swagger-ui-py
 pyzmq==25.1.0
     # via
     #   ipykernel
