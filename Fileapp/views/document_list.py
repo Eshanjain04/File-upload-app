@@ -12,7 +12,7 @@ class DocumentList:   # API to handle list of documents of a certain user
             documents = Document.objects.filter(user=request.context.user_id)
             response_body = {}
             items = []
-            for item in documents:
+            for item in reversed(documents):
                 items.append(item.to_dict)
             response_body['items'] = items
             return ResponseEngine(response=response, body=response_body).success_response()
