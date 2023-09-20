@@ -4,7 +4,8 @@ import json
 from mongoengine import Document
 
 
-class DocumentCreate(Document):
+class DocumentCreate(
+    Document):  # class extending Document class of mongoengine, to add custom methods in models if needed
     meta = {
         'abstract': True,
     }

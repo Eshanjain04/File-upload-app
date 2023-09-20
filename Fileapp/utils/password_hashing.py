@@ -2,7 +2,7 @@
 from passlib.handlers.sha2_crypt import sha256_crypt
 
 
-class Encrypt:
+class Encrypt:  # class to handle hashing and dehashing of password
 
     @classmethod
     def encrypt(cls, plain_text):

@@ -3,8 +3,9 @@ from Fileapp.utils.jwt.jwt_encoder_decoder import JWTManager
 from Fileapp.utils.response_handler.response_handler import AuthorizationError
 
 
-def verify_token(request):
+def verify_token(request):    # method to verify whether the user is authorized or not
     try:
+        # decode the token received in headers
         decoded_header = JWTManager().decode(encoded_jwt=request.headers.get('AUTHORIZATION')[7:])
 
         if not decoded_header:

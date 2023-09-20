@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# file to handle env variables, exclude need to import dotenv package everywhere
 CORS_ALLOWED = os.environ['CORS_ALLOWED'].lower() == 'true'
 RUNNING_PORT = os.environ.get('RUNNING_PORT')
 DATABASE_URL = os.environ.get('DATABASE_URL')

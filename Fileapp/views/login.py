@@ -4,7 +4,7 @@ from Fileapp.utils.password_hashing import Encrypt
 from Fileapp.utils.response_handler.response_handler import ResponseEngine
 
 
-class Login:
+class Login:  # API to handle login of user
 
     def on_post(self, request, response):
         user_name = request.media.get('user_name', '')
@@ -16,7 +16,7 @@ class Login:
         user_obj_with_user_name = User.objects.filter(user_name=user_name).first()
         user_obj_with_email = User.objects.filter(email=user_name).first()
         user_obj = None
-        if not user_obj_with_user_name and not user_obj_with_email:
+        if not user_obj_with_user_name and not user_obj_with_email:  # user can login with both email and username
             return ResponseEngine(response=response, body='User doesnot exists').error_response()
         if user_obj_with_user_name and not user_obj_with_email:
             user_obj = user_obj_with_user_name

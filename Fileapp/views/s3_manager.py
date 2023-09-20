@@ -8,7 +8,7 @@ from settings.config import AWS_SECRET_ACCESS_KEY
 import boto3 as boto3
 
 
-class S3Manager:
+class S3Manager:  # class to handle Amazon S3 upload
 
     def __init__(self,
                  access_key=AWS_ACCESS_KEY_ID,
@@ -21,9 +21,9 @@ class S3Manager:
         self.bucket = bucket
         self.region = region
         self.upload_path = 'fileuploadapp'
-        self.client = self.connection()
+        self.client = self.connection()   # creates a session with s3 using boto3 library when instantiated
 
-    def connection(self):
+    def connection(self):  # handles connection with s3 using specific keys
         _session = boto3.Session(region_name=self.region)
         try:
             return _session.client('s3',
@@ -34,7 +34,7 @@ class S3Manager:
         except InvalidRegionError:
             raise EnvironmentError('invalid region name')
 
-    def upload_file(self, stream,
+    def upload_file(self, stream,      # handle upload file and upload it to s3
                     file_name,
                     upload_location,
                     is_public=False):
@@ -49,6 +49,6 @@ class S3Manager:
         return s3_file_name
 
     @classmethod
-    def get_file_name(cls, file_name):
+    def get_file_name(cls, file_name):      # return a file name in string
         random_value = ''.join(random.choices(s.ascii_uppercase + s.digits + s.ascii_lowercase, k=10))
         return f'{random_value}-{file_name}'

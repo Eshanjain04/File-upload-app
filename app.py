@@ -10,7 +10,7 @@ class APP(App):
         self.url_list = url_list
         self.auto_route()
 
-    def auto_route(self):
+    def auto_route(self):  # redirects to specified url paths
         for path, version in self.url_list:
             urls = import_module(path + '.url').urls
             for route, instance in urls:

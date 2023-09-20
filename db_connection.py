@@ -6,7 +6,7 @@ from settings.config import DATABASE_PASSWORD
 from settings.config import DATABASE_USER
 
 
-class MongoConnect:
+class MongoConnect:   # class to make connection to MongoDB Atlas
 
     @staticmethod
     def connect_to_db():

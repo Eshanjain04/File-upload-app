@@ -4,7 +4,7 @@ import mongoengine as me
 from Fileapp.utils.DocumentCreate import DocumentCreate
 
 
-class User(DocumentCreate):
+class User(DocumentCreate):   # user model to store user information
     first_name = me.StringField(required=False)
     last_name = me.StringField(required=False)
     user_name = me.StringField(required=True)

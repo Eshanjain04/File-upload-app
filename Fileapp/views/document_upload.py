@@ -7,7 +7,7 @@ from Fileapp.views.s3_manager import S3Manager
 from Fileapp.models.document import Document
 
 
-class DocUpload:
+class DocUpload:  # API to handle Document upload to S3 and store document information in db
     @before(login_required)
     def on_post(self, request, response):
         for part in request.get_media():
@@ -17,17 +17,16 @@ class DocUpload:
             path = S3Manager().upload_file(stream=uploaded_file.stream,
                                            file_name=uploaded_file.secure_filename,
                                            upload_location='fileuploadapp',
-                                           is_public=True)
+                                           is_public=True)  # return filename if successfully uploaded to s3
             random_value = ''.join(random.choices(s.ascii_uppercase + s.digits + s.ascii_lowercase, k=4))
-            short_url = f'eshgetfile/{random_value}'
+            short_url = f'eshgetfile/{random_value}'  # short url for our file
             document = Document(
                 file_name=uploaded_file.secure_filename,
                 file_path=f'https://fileuploadappesh.s3.ap-south-1.amazonaws.com/{path}',
                 file_type=uploaded_file.content_type,
                 short_url=short_url,
                 user=request.context.user_id
-            ).save()
-
+            ).save()  # storing document data in mongodb
             response_body = {
                 'document': {'file': f'https://fileuploadappesh.s3.ap-south-1.amazonaws.com/{path}',
                              'short_url': short_url,

@@ -5,7 +5,7 @@ from Fileapp.utils.auth.verify_token import login_required
 from Fileapp.utils.response_handler.response_handler import ResponseEngine
 
 
-class DocumentList:
+class DocumentList:   # API to handle list of documents of a certain user
     @before(login_required)
     def on_get(self, request, response):
         try:
