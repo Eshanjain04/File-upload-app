@@ -1,0 +1,144 @@
+html{
+    height: 100%;
+}
+body{
+   background-color: cadetblue;
+   font-family: sans-serif;
+   height: 90%;
+    
+} 
+header h1{
+    height: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+section{
+    height: 100%;
+    width: 90%;
+}
+
+.form form{
+    position: absolute;
+    left: 33%;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    align-items: center;
+    background-color:aliceblue;
+}
+
+.form fieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0px;
+}
+
+
+.form label,.form input{
+    display: flex;
+    height: 20px;
+    width: 130px;
+    padding: 3px;
+}
+
+.form input{
+    background-color:whitesmoke;
+}
+
+
+.form-buttons button{
+    height: 35px;
+    width: 70px;
+    margin: 10px;
+    padding: 3px;
+}
+
+.form-buttons #login{
+    background-color: teal;
+}
+
+.form .forgot-password{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-buttons #forgot-password{
+    background-color: lightseagreen;
+}
+
+button:hover{
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+}
+
+.main .upload-section{
+    display: flex;
+    height: 80%;
+    padding: 0%;
+    width: 70%;
+    background-color: aliceblue;
+    margin-right: 10px;
+   
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.main .file-section{
+    margin-left: 10px;
+    height: 80%;
+    padding: 0%;
+    width: 30%;
+    background-color: teal;
+  
+    overflow: auto;
+}
+
+
+
+.main .upload-section .file input, .main .upload-section button{
+    margin:10px;
+}
+
+.main .upload-section .file-operation{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+}
+
+.main .upload-section .file-operation button{
+    margin-right:25px ;
+}
+
+.main .upload-section .file-operation #upload-file{
+    background-color: teal;
+}
+
+.home{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.home div{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home div button{
+    height:35px;
+}
