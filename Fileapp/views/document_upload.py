@@ -23,7 +23,7 @@ class DocUpload:  # API to handle Document upload to S3 and store document infor
                                            is_public=True)  # return filename if successfully uploaded to s3
             random_value = ''.join(random.choices(s.ascii_uppercase + s.digits + s.ascii_lowercase, k=4))
 
-            short_url = f'{BASE_URL_DEPLOY}/{random_value}'  # short url for our file
+            short_url = f'{BASE_URL_DEPLOY}/{random_value}/'  # short url for our file
             file_url = f'{AWS_S3_BASE_URL}/{path}'
             document = Document.objects.filter(file_path=file_url).first()
             if document:
