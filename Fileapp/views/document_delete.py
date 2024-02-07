@@ -9,8 +9,13 @@ class DocumentDelete:
     @before(login_required)
     def on_delete(self, request, response, *args, **kwargs):
         item_id = kwargs.get('pk')
+        response_body = {}
         try:
             document = Document.objects.filter(user=request.context.user_id, pk=item_id).first()
+            if not document:
+                response_body['status'] = 'failed'
+                response_body['msg'] = 'File not found'
+                return ResponseEngine(response=response, body=response_body).error_response()
             document.delete()
             response_body = {
                 'status': 'success',
