@@ -12,7 +12,11 @@ class DocumentDelete:
         try:
             document = Document.objects.filter(user=request.context.user_id, pk=item_id).first()
             document.delete()
-            return ResponseEngine(response=response, body='Document Deleted Successfully').success_response()
+            response_body = {
+                'status': 'success',
+                'msg': 'Document Deleted Successfully'
+            }
+            return ResponseEngine(response=response, body=response_body).success_response()
 
         except FileNotFoundError:
             return ResponseEngine(response=response, body='No Documents Found').error_response()
